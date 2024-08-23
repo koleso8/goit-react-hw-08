@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Toggle.module.css';
 import { useEffect } from 'react';
-import { changeIsFavorite } from '../redux/filtersSlice';
-import { selectCountFavoriteMemo } from '../redux/selecrors';
+import { changeIsFavorite } from '../redux/filters/slice';
+import { selectCountFavoriteMemo } from '../redux/contacts/selectors';
 
 const Toggle = () => {
   const dispatch = useDispatch();

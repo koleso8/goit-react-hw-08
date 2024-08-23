@@ -4,10 +4,10 @@ import {
   selectCurrent,
   selectIsError,
   selectIsLoading,
-} from './redux/selecrors';
+} from './redux/contacts/selectors';
 import { errorMessage } from './components/errorMessage';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from './redux/contactsOps';
+import { fetchContactsThunk } from './redux/contacts/operations';
 import Loader from './components/Loader/Loader';
 import './App.css';
 import Toggle from './Toggle/Toggle';

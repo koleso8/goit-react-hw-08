@@ -5,7 +5,7 @@ import { contactSchema } from '../../helpers/contactSchema';
 import s from './ContactForm.module.css';
 import { FaPhone, FaUser } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { addContactsThunk } from '../../redux/contactsOps';
+import { addContactsThunk } from '../../redux/contacts/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();

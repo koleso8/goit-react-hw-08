@@ -5,7 +5,7 @@ import {
   editContactsThunk,
   editFavoriteThunk,
   fetchContactsThunk,
-} from './contactsOps';
+} from './operations';
 
 const initialState = {
   items: [],

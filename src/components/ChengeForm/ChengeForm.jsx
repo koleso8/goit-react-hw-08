@@ -6,8 +6,8 @@ import { FaPhone, FaUser } from 'react-icons/fa';
 import { contactSchema } from '../../helpers/contactSchema';
 import { cancelEdit } from '../../redux/editSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrent } from '../../redux/selecrors';
-import { editContactsThunk } from '../../redux/contactsOps';
+import { selectCurrent } from '../../redux/contacts/selectors';
+import { editContactsThunk } from '../../redux/contacts/operations';
 
 export const ChengeForm = () => {
   const nameFieldId = useId();

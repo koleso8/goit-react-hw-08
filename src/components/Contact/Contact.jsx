@@ -9,7 +9,7 @@ import { onEdit } from '../../redux/editSlice';
 import {
   deleteContactsThunk,
   editFavoriteThunk,
-} from '../../redux/contactsOps';
+} from '../../redux/contacts/operations';
 
 const Contact = ({ id, name, number, favorite }) => {
   const dispatch = useDispatch();
