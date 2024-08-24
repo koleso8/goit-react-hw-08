@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://connections-api.goit.global/';
-
 export const fetchContactsThunk = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunkAPI) => {
@@ -19,7 +17,7 @@ export const addContactsThunk = createAsyncThunk(
   'contacts/addContacts',
   async (card, thunkAPI) => {
     try {
-      const { data } = await axios.post('items', card);
+      const { data } = await axios.post('contacts', card);
 
       return data;
     } catch (error) {
@@ -32,7 +30,7 @@ export const deleteContactsThunk = createAsyncThunk(
   'contacts/deleteContacts',
   async (id, thunkAPI) => {
     try {
-      await axios.delete(`items/${id}`);
+      await axios.delete(`contacts/${id}`);
       return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -44,22 +42,11 @@ export const editContactsThunk = createAsyncThunk(
   'contacts/editContact',
   async (card, thunkAPI) => {
     try {
-      await axios.put(`items/${card.id}`, card);
-      return card;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const editFavoriteThunk = createAsyncThunk(
-  'contacts/editFavorite',
-  async (card, thunkAPI) => {
-    try {
-      const { data } = await axios.put(`items/${card.id}`, {
-        favorite: !card.favorite,
+      await axios.patch(`contacts/${card.id}`, {
+        name: card.name,
+        number: card.number,
       });
-      return data;
+      return card;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -3,7 +3,6 @@ import {
   addContactsThunk,
   deleteContactsThunk,
   editContactsThunk,
-  editFavoriteThunk,
   fetchContactsThunk,
 } from './operations';
 
@@ -33,23 +32,17 @@ const slice = createSlice({
           item.id === action.payload.id ? { ...item, ...action.payload } : item
         );
       })
-      .addCase(editFavoriteThunk.fulfilled, (state, action) => {
-        state.items = state.items.map(item =>
-          item.id === action.payload.id ? { ...item, ...action.payload } : item
-        );
-      })
-
       .addMatcher(
         isAnyOf(
           fetchContactsThunk.fulfilled,
           addContactsThunk.fulfilled,
           deleteContactsThunk.fulfilled,
           editContactsThunk.fulfilled,
-          editFavoriteThunk.fulfilled,
+
           fetchContactsThunk.rejected,
           addContactsThunk.rejected,
           deleteContactsThunk.rejected,
-          editFavoriteThunk.rejected,
+
           editContactsThunk.rejected
         ),
         state => {
@@ -61,7 +54,7 @@ const slice = createSlice({
           fetchContactsThunk.rejected,
           addContactsThunk.rejected,
           deleteContactsThunk.rejected,
-          editFavoriteThunk.rejected,
+
           editContactsThunk.rejected
         ),
         (state, action) => {
@@ -73,7 +66,7 @@ const slice = createSlice({
           editContactsThunk.pending,
           fetchContactsThunk.pending,
           addContactsThunk.pending,
-          editFavoriteThunk.pending,
+
           deleteContactsThunk.pending
         ),
         state => {
