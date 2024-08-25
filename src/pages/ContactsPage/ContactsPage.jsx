@@ -27,7 +27,7 @@ const ContactsPage = () => {
     <div className="wrapper">
       {isLoading && <Loader />}
       {isError && errorMessage(isError)}
-      <h1 className="title">Phonebook</h1>
+
       <section className="tools">
         {current ? <ChengeForm /> : <ContactForm />}
         <div className="util">

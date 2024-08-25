@@ -1,6 +1,8 @@
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { loginThunk } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { loginSchema } from '../../helpers/loginSchema';
+import s from '../RegistrationForm/RegistrationForm.module.css';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -11,14 +13,19 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <Formik initialValues={initialValues} onSubmit={handelSubmit}>
+    <div className={s.form}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handelSubmit}
+        validationSchema={loginSchema}
+      >
         <Form>
-          <label>
+          <label className={s.label}>
             Email
             <Field type="email" name="email" />
+            <ErrorMessage name="email" component="span" />
           </label>
-          <label>
+          <label className={s.label}>
             Password
             <Field
               type="password"
@@ -26,8 +33,11 @@ const LoginForm = () => {
               autoComplete="true"
               suggested="current-password"
             />
+            <ErrorMessage name="password" component="span" />
           </label>
-          <button type="submit">SingUp</button>
+          <button className={s.oauthButton} type="submit">
+            LogIn
+          </button>
         </Form>
       </Formik>
     </div>

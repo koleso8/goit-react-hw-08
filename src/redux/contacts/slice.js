@@ -5,6 +5,7 @@ import {
   editContactsThunk,
   fetchContactsThunk,
 } from './operations';
+import { success } from '../../components/success';
 
 const initialState = {
   items: [],
@@ -23,6 +24,7 @@ const slice = createSlice({
       })
       .addCase(addContactsThunk.fulfilled, (state, action) => {
         state.items.push(action.payload);
+        success('Contact has been saved');
       })
       .addCase(deleteContactsThunk.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload);

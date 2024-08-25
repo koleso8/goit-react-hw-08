@@ -5,6 +5,8 @@ import {
   refreshUserThunk,
   registerThunk,
 } from './operations';
+import { useNavigate } from 'react-router-dom';
+import { errorMessage } from '../../components/errorMessage';
 
 const initialState = {
   user: {
@@ -26,10 +28,16 @@ const slice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(registerThunk.rejected, () => {
+        errorMessage('This name or email is already in use');
+      })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+      })
+      .addCase(loginThunk.rejected, () => {
+        errorMessage('Invalid email or password');
       })
       .addCase(logoutThunk.fulfilled, state => {
         state.user = { name: null, email: null };

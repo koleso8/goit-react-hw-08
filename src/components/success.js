@@ -1,10 +1,10 @@
 import Swal from 'sweetalert2';
 
-export const success = () => {
+export const success = text => {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    title: 'contact has been saved',
+    title: text,
     showConfirmButton: false,
     timer: 1500,
   });

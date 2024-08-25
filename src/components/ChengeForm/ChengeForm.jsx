@@ -8,6 +8,7 @@ import { cancelEdit } from '../../redux/editSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrent } from '../../redux/contacts/selectors';
 import { editContactsThunk } from '../../redux/contacts/operations';
+import Swal from 'sweetalert2';
 
 export const ChengeForm = () => {
   const nameFieldId = useId();
@@ -16,8 +17,23 @@ export const ChengeForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (value, action) => {
-    dispatch(editContactsThunk(value));
-    dispatch(cancelEdit());
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then(result => {
+      if (result.isConfirmed) {
+        dispatch(editContactsThunk(value));
+        dispatch(cancelEdit());
+        Swal.fire('Saved!', '', 'success');
+      } else if (result.isDenied) {
+        dispatch(cancelEdit());
+        Swal.fire('Changes are not saved', '', 'info');
+      }
+    });
+
     action.resetForm();
   };
 
