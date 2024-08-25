@@ -4,8 +4,6 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 const setAuthHeader = token => {
-  console.log(token);
-
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 

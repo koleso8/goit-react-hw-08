@@ -21,7 +21,7 @@ const Contact = ({ id, name, number }) => {
           dispatch(onEdit(card));
         }}
       >
-        <a href="#chengeForm">
+        <a href="#header">
           <FaPencilAlt />
         </a>
       </button>

@@ -16,7 +16,7 @@
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
   width: 300px;
-  height: 100%;
+  height: 360px;
   position: relative;
   @media only screen and (max-width: 406px) {
     width: 100%;

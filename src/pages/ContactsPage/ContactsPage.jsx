@@ -24,7 +24,7 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="wrapper">
+    <div className="container">
       {isLoading && <Loader />}
       {isError && errorMessage(isError)}
 

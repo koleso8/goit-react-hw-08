@@ -16,7 +16,11 @@ const initialState = {
 const slice = createSlice({
   name: 'contacts',
   initialState,
-
+  reducers: {
+    clearItems: state => {
+      return { ...state, items: [] };
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, action) => {
@@ -88,4 +92,5 @@ export const {
   onEdit,
   cancelEdit,
   changeFilter,
+  clearItems,
 } = slice.actions;
