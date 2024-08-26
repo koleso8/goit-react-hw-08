@@ -54,7 +54,7 @@ const slice = createSlice({
       })
       .addCase(refreshUserThunk.rejected, state => {
         state.isRefreshing = false;
-        errorMessage('please login or register');
+        errorMessage('Please login or register');
       });
   },
 });
