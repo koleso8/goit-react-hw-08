@@ -34,7 +34,7 @@ p {
   font-weight: bold;
   font-size: 14px;
   position: absolute;
-  top: 2px;
+  bottom: -20px;
   right: 0;
 }
 

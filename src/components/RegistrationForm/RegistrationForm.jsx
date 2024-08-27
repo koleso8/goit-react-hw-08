@@ -26,12 +26,12 @@ const RegistrationForm = () => {
           <Form>
             <label className={s.label}>
               Name
-              <Field type="text" name="name" />
+              <Field type="text" name="name" placeholder="name" />
               <ErrorMessage name="name" component="span" />
             </label>
             <label className={s.label}>
               Email
-              <Field type="email" name="email" />
+              <Field type="email" name="email" placeholder="email" />
               <ErrorMessage name="email" component="span" />
             </label>
             <label className={s.label}>
@@ -41,6 +41,7 @@ const RegistrationForm = () => {
                 name="password"
                 autoComplete="true"
                 suggested="current-password"
+                placeholder="password"
               />
               <ErrorMessage name="password" component="span" />
             </label>
