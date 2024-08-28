@@ -15,11 +15,11 @@ export const SearchBox = () => {
   return (
     <div className={clsx(s.box)}>
       <label htmlFor={searchInputId}>
-        Find contact by name
+        Find by name or number
         <FaSearch className={clsx(s.iconSearch)} />
       </label>
       <input
-        placeholder="search by name"
+        placeholder="search by name or number"
         type="text"
         name="search"
         id={searchInputId}

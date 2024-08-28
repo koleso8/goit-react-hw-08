@@ -51,7 +51,7 @@ const Contact = ({ id, name, number }) => {
               dispatch(deleteContactsThunk(id));
               Swal.fire({
                 title: 'Deleted!',
-                text: 'Your file has been deleted.',
+                text: `Contact ${name} has been deleted.`,
                 icon: 'success',
               });
             }
